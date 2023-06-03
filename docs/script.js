@@ -1,8 +1,8 @@
 // Runs the Javascript code when the page's DOM is ready.
 $(document).ready(function () {
-  // Puts all the column containers into a variable.
+// Puts all the column containers into a variable.
   var schedule = $(".containers");
-  // Generates time blocks from 9AM to 5PM, with 17 being 5PM.
+// Generates time blocks from 9AM to 5PM, with 17 being 5PM.
   for (var i = 9; i <= 17; i++) {
     var timeBlock = $("<div>")
       .attr("id", "hour-" + i)
@@ -12,7 +12,7 @@ $(document).ready(function () {
   }
 
   $(".saveBtn").on("click", saveButton);
-  // Event listener for when the save button is clicked.
+// Event listener for when the save button is clicked.
   function saveButton() {
     var writing = $(this).siblings(".writing");
     var timeBlock = writing.closest(".hour-column");
@@ -20,7 +20,7 @@ $(document).ready(function () {
     var value = writing.val();
     // console.log(test);
     localStorage.setItem(time, value);
-    // function that follows the save button being clicked, which directly references the writing area and retrieves its ID. Then saves to local storage.
+// function that follows the save button being clicked, which directly references the writing area and retrieves its ID. Then saves to local storage.
     $(".notification").addClass("show");
 
     setTimeout(function () {
@@ -38,7 +38,7 @@ $(document).ready(function () {
       return "future";
     }
   }
-  // Function which checks the current time and compares it to the time on the schedule.
+// Function which checks the current time and compares it to the time on the schedule.
   function hourKeeper() {
     var currentHour = dayjs().hour();
 
